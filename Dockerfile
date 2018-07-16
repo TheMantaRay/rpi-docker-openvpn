@@ -10,12 +10,12 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposi
 
 # Needed by scripts
 ENV OPENVPN /etc/openvpn
-ENV EASYRSA /usr/share/easy-rsa
+#ENV EASYRSA /usr/share/easy-rsa
 ENV EASYRSA_PKI $OPENVPN/pki
 ENV EASYRSA_VARS_FILE $OPENVPN/vars
 
 # Prevents refused client connection because of an expired CRL
-ENV EASYRSA_CRL_DAYS 3650
+#ENV EASYRSA_CRL_DAYS 3650
 
 VOLUME ["/etc/openvpn"]
 
@@ -28,4 +28,4 @@ ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 
 # Add support for OTP authentication using a PAM module
-ADD ./otp/openvpn /etc/pam.d/
+#ADD ./otp/openvpn /etc/pam.d/
